@@ -16,13 +16,12 @@
             </div>
             <div
                 class="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-surface-card border border-border-light dark:border-border-dark mb-6 shadow-sm">
-                <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 flex-shrink-0"
-                    data-alt="User profile picture"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQZDguglxGrlv3wLOTfPMAoAjnJxn8GJJ7f0evMUd9v7pqpVNoyrgixdfYfW0T73sHCz7Pq7rBfgciLzjECHH6MLQvqj8ibuBtkADzZOQF-XVMAn9t45EU3F8Nyi5LW2U9MdrZcduvxD9RLiNeX9tIPZ4yGctNoY1azqlqz12oJdDZZPAqK0J7mFE_gcDSCsxQWU-BsZA-zEFiwNAA6ul7vAWs6cdf6b6NabS-Oayu2fGEwWCvnyowvGsRRshPsbmSSFZ8rt-Uteo");'>
+                <div class="bg-primary/20 rounded-full size-10 flex-shrink-0 flex items-center justify-center">
+                    <span class="text-primary font-bold text-lg">{{ authService.user()?.name?.charAt(0)?.toUpperCase() || 'U' }}</span>
                 </div>
                 <div class="flex flex-col overflow-hidden">
-                    <h1 class="text-text-main-light dark:text-white text-sm font-semibold truncate">Ricardo Silva</h1>
-                    <p class="text-primary text-xs font-medium">Saldo: 12 Créditos</p>
+                    <h1 class="text-text-main-light dark:text-white text-sm font-semibold truncate">{{ authService.user()?.name || 'Usuário' }}</h1>
+                    <p class="text-primary text-xs font-medium">Saldo: {{ authService.credits() }} Créditos</p>
                 </div>
             </div>
         </div>
@@ -49,7 +48,7 @@
             </a>
         </nav>
         <div class="p-4 border-t border-border-light dark:border-border-dark">
-            <button
+            <button (click)="logout()"
                 class="flex w-full items-center gap-3 px-3 py-2 text-text-secondary-light dark:text-text-secondary hover:text-primary dark:hover:text-white transition-colors text-sm font-medium">
                 <span class="material-symbols-outlined text-[20px]">logout</span>
                 Sair
@@ -103,6 +102,17 @@
                         }
                         <!-- Action Button -->
                         <div class="sticky bottom-4 z-10 pt-4">
+                            @if (errorMessage()) {
+                            <div class="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+                                {{ errorMessage() }}
+                            </div>
+                            }
+                            @if (generatedImageUrl()) {
+                            <div class="mb-4 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                                <p class="text-green-400 text-sm mb-2">✅ Thumbnail gerada com sucesso!</p>
+                                <a [href]="generatedImageUrl()" target="_blank" class="text-primary text-sm underline">Ver imagem</a>
+                            </div>
+                            }
                             <div
                                 class="bg-white/90 dark:bg-surface-card/90 backdrop-blur-sm p-4 rounded-xl border border-border-light dark:border-border-dark shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 transition-colors duration-200">
                                 <div class="flex items-center gap-2">
@@ -111,10 +121,15 @@
                                         consumirá <strong class="text-text-main-light dark:text-white">1
                                             Crédito</strong></span>
                                 </div>
-                                <button
-                                    class="w-full md:w-auto flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3 px-8 rounded-lg transition-all shadow-[0_0_15px_rgba(19,182,236,0.3)] hover:shadow-lg hover:-translate-y-0.5">
+                                <button (click)="generateThumbnail()" [disabled]="!canGenerate || isGenerating()"
+                                    class="w-full md:w-auto flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3 px-8 rounded-lg transition-all shadow-[0_0_15px_rgba(19,182,236,0.3)] hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                                    @if (isGenerating()) {
+                                    <span class="material-symbols-outlined animate-spin">progress_activity</span>
+                                    Gerando...
+                                    } @else {
                                     <span class="material-symbols-outlined">auto_awesome</span>
                                     Gerar Thumbnails
+                                    }
                                 </button>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ThemeService } from '../../../../core/services/theme.service';
+import { AuthService } from '../../../../core/services/auth.service';
+import { ThumbnailService } from '../../../../core/services/thumbnail.service';
 import { CommonModule } from '@angular/common';
 import { TemplateId } from '../../../../core/models/templa.type';
 import { TemplateConfig } from '../../../../core/models/template-config';
@@ -22,12 +24,19 @@ import { DashboardPreview } from './components/dashboard-preview/dashboard-previ
 })
 export class Dashboard {
   themeService = inject(ThemeService);
+  authService = inject(AuthService);
+  private thumbnailService = inject(ThumbnailService);
+
   selectedTemplateId: TemplateId = 'faixa-vermelha';
   enhanceAi = false;
   videoFile: File | null = null;
   personFile: File | null = null;
   title = '';
   promptText = '';
+
+  isGenerating = signal(false);
+  generatedImageUrl = signal<string | null>(null);
+  errorMessage = signal<string | null>(null);
 
   selectTemplate(id: TemplateId) {
     this.selectedTemplateId = id;
@@ -65,5 +74,48 @@ export class Dashboard {
 
   get templateConfig(): TemplateConfig {
     return TemplateConfig.get(this.selectedTemplateId);
+  }
+
+  get canGenerate(): boolean {
+    if (this.selectedTemplateId === 'prompt') {
+      return !!this.promptText.trim();
+    }
+    return !!(this.videoFile || this.personFile);
+  }
+
+  generateThumbnail(): void {
+    if (!this.canGenerate || this.isGenerating()) return;
+
+    this.isGenerating.set(true);
+    this.errorMessage.set(null);
+    this.generatedImageUrl.set(null);
+
+    this.thumbnailService.generate({
+      templateId: this.selectedTemplateId,
+      videoImage: this.videoFile ?? undefined,
+      personImage: this.personFile ?? undefined,
+      title: this.title || undefined,
+      prompt: this.promptText || undefined,
+      enhanceWithAi: this.enhanceAi
+    }).subscribe({
+      next: (response) => {
+        this.isGenerating.set(false);
+        this.generatedImageUrl.set(
+          this.thumbnailService.getFullImageUrl(response.imageUrl)
+        );
+      },
+      error: (err) => {
+        this.isGenerating.set(false);
+        if (err.status === 402) {
+          this.errorMessage.set('Créditos insuficientes. Adquira mais créditos para continuar.');
+        } else {
+          this.errorMessage.set(err.error?.error || 'Erro ao gerar thumbnail. Tente novamente.');
+        }
+      }
+    });
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

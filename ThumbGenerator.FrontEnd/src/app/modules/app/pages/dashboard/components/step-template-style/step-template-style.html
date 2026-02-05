@@ -16,7 +16,8 @@
                     data-alt="Template Faixa Vermelha 9x16"
                     style='background-image: url("assets/images/template-faixa-vermelha.png");'>
                 </div>
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
                     <span class="text-white font-medium text-sm">Visualizar</span>
                 </div>
                 <div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
@@ -25,7 +26,8 @@
                     </div>
                 </div>
             </div>
-            <p class="text-text-main-light dark:text-white text-sm font-medium mt-2 text-center">Template Faixa Vermelha</p>
+            <p class="text-text-main-light dark:text-white text-sm font-medium mt-2 text-center">Template Faixa Vermelha
+            </p>
         </label>
 
         <!-- Template Option 2: Prompt / Do zero (9x16) -->
@@ -78,8 +80,7 @@
             </div>
             <button (click)="enhanceToggled.emit()"
                 class="px-3 py-2 rounded-lg text-sm font-medium border transition-colors border-border-light dark:border-border-dark text-text-main-light dark:text-white"
-                [class.border-primary]="enhanceAi" [class.text-primary]="enhanceAi"
-                [class.bg-primary]="enhanceAi">
+                [class.border-primary]="enhanceAi" [class.text-primary]="enhanceAi" [class.bg-primary]="enhanceAi">
                 {{ enhanceAi ? 'Ativado' : 'Ativar' }}
             </button>
         </div>
@@ -87,17 +88,34 @@
         @if (enhanceAi) {
         <div class="mt-5 flex flex-col gap-4">
             <div class="flex flex-col gap-2">
-                <label class="text-sm font-medium text-text-main-light dark:text-white">Tom do Vídeo</label>
-                <div class="grid grid-cols-2 gap-3">
+                <div class="flex items-center justify-between">
+                    <label class="text-sm font-medium text-text-main-light dark:text-white">Tom do Vídeo</label>
+                    <button (click)="toggleOrientation()"
+                        class="text-xs font-medium text-primary hover:text-primary-hover flex items-center gap-1 transition-colors">
+                        <span class="material-symbols-outlined text-[16px]">{{ isVertical ? 'crop_portrait' :
+                            'crop_landscape' }}</span>
+                        {{ isVertical ? 'Vertical (9:16)' : 'Horizontal (16:9)' }}
+                    </button>
+                </div>
+                <div class="grid gap-3" [ngClass]="isVertical ? 'grid-cols-4' : 'grid-cols-2'">
                     @for (tone of toneOptions; track tone.id) {
-                    <button type="button"
-                        class="flex flex-col gap-2 p-2 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-background-dark text-left transition-all"
-                        [class.border-primary]="selectedTone === tone.id"
-                        [class.ring-2]="selectedTone === tone.id"
-                        [class.ring-primary/30]="selectedTone === tone.id"
+                    <button type="button" class="flex flex-col items-center gap-1.5 transition-all"
+                        [ngClass]="selectedTone === tone.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'"
                         (click)="onSelectTone(tone.id)">
-                        <div class="aspect-video rounded-md bg-black"></div>
-                        <span class="text-[11px] font-medium text-text-main-light dark:text-white">{{ tone.label }}</span>
+                        @if (isVertical) {
+                        <!-- Phone Frame -->
+                        <div class="w-full bg-black rounded-[1rem] border-[4px] overflow-hidden shadow-xl ring-2 aspect-[9/16] transition-all duration-300"
+                            [ngClass]="selectedTone === tone.id ? 'border-primary ring-primary/30' : 'border-slate-700 ring-slate-900/10'">
+                            <div class="w-full h-full bg-gradient-to-b from-slate-800 to-black"></div>
+                        </div>
+                        } @else {
+                        <div class="aspect-video w-full rounded-lg border-2 transition-all duration-300"
+                            [ngClass]="selectedTone === tone.id ? 'border-primary bg-primary/10' : 'border-slate-700 bg-black'">
+                        </div>
+                        }
+                        <span class="text-[10px] font-medium text-center leading-tight"
+                            [ngClass]="selectedTone === tone.id ? 'text-primary' : 'text-text-main-light dark:text-white'">{{
+                            tone.label }}</span>
                     </button>
                     }
                 </div>
@@ -111,17 +129,32 @@
                     (input)="onPromptChange($any($event.target).value)"></textarea>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
-                <div class="rounded-lg overflow-hidden border border-border-light dark:border-border-dark">
+            <div [ngClass]="isVertical ? 'flex justify-center gap-8' : 'grid grid-cols-2 gap-3'">
+                <!-- Antes -->
+                <div class="flex flex-col items-center gap-1.5" [ngClass]="isVertical ? 'w-32' : ''">
+                    @if (isVertical) {
                     <div
-                        class="aspect-video bg-surface-light dark:bg-background-dark flex items-center justify-center text-xs text-text-secondary-light dark:text-text-secondary">
-                        Antes
+                        class="w-full bg-slate-200 dark:bg-slate-700 rounded-[1rem] border-[4px] border-slate-300 dark:border-slate-600 overflow-hidden shadow-xl ring-2 ring-slate-400/10 aspect-[9/16] flex items-center justify-center transition-all duration-300">
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400">Antes</span>
                     </div>
+                    } @else {
+                    <div
+                        class="aspect-video w-full rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-surface-light dark:bg-background-dark flex items-center justify-center text-xs text-text-secondary-light dark:text-text-secondary">
+                        Antes</div>
+                    }
                 </div>
-                <div class="rounded-lg overflow-hidden border border-primary/40">
-                    <div class="aspect-video bg-primary/10 flex items-center justify-center text-xs text-primary">
-                        Depois (AI Enhance)
+                <!-- Depois -->
+                <div class="flex flex-col items-center gap-1.5" [ngClass]="isVertical ? 'w-32' : ''">
+                    @if (isVertical) {
+                    <div
+                        class="w-full bg-primary/20 rounded-[1rem] border-[4px] border-primary ring-2 ring-primary/30 overflow-hidden shadow-xl aspect-[9/16] flex items-center justify-center transition-all duration-300">
+                        <span class="text-[10px] text-primary font-medium">Depois</span>
                     </div>
+                    } @else {
+                    <div
+                        class="aspect-video w-full rounded-lg border-2 border-primary bg-primary/10 flex items-center justify-center text-xs text-primary">
+                        Depois (AI)</div>
+                    }
                 </div>
             </div>
         </div>
