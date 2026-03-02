@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Landing } from './modules/landing/pages/landing/landing';
+import { Pricing } from './modules/landing/pages/pricing/pricing';
 
 export const routes: Routes = [
     {
@@ -13,6 +14,10 @@ export const routes: Routes = [
     {
         path: 'app',
         loadChildren: () => import('./modules/app/application.routes').then(m => m.applicationRoutes)
+    },
+    {
+        path: 'pricing',
+        component: Pricing
     },
     {
         path: '**',

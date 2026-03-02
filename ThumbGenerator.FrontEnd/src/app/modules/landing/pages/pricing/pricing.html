@@ -1,0 +1,241 @@
+<div class="relative min-h-screen bg-black text-white font-[Plus_Jakarta_Sans] overflow-x-hidden">
+    <div class="mesh-bg"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/logo.png" alt="ThumbGerador" class="h-10 w-auto rounded-lg object-contain" />
+                <span
+                    class="font-[Outfit] font-black text-2xl tracking-tighter uppercase tiktok-shadow-sm">ThumbGerador</span>
+            </a>
+
+            <!-- Nav links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-sm text-white/70">
+                <a href="/pricing" class="text-[var(--neon-pink)] transition-colors duration-200">Preços</a>
+                <a href="https://github.com/DaviLuquini/ThumbGenerator" target="_blank"
+                    class="hover:text-[var(--neon-cyan)] transition-colors duration-200">Github</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <a href="#"
+                    class="hidden sm:block font-bold text-white/70 hover:text-[var(--neon-pink)] transition-colors text-sm">Entrar</a>
+                <a href="#" class="btn-tiktok text-sm !px-6 !py-2.5">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pricing Hero -->
+    <section class="relative pt-40 pb-16 px-6 max-w-[1400px] mx-auto text-center z-10 border-b border-white/[0.06]">
+        <div class="mb-6">
+            <div
+                class="inline-flex items-center gap-2 rounded-full bg-white/5 border border-[var(--neon-cyan)]/30 px-4 py-2 text-xs font-bold text-[var(--neon-cyan)] uppercase tracking-wider shadow-[0_0_15px_rgba(0,242,254,0.15)] mb-4">
+                <span>Transparência Total</span>
+            </div>
+
+            <h1
+                class="font-[Outfit] font-black text-5xl sm:text-6xl md:text-7xl tracking-tighter uppercase leading-[0.9] mt-2">
+                Domine o algoritmo. <br class="hidden sm:block" />
+                Sem surpresas no <span
+                    class="text-[var(--neon-cyan)] inline-block drop-shadow-[0_0_20px_rgba(0,242,254,0.8)]"
+                    data-text="BOLSO">BOLSO</span>.
+            </h1>
+
+            <p class="text-lg sm:text-xl font-medium max-w-2xl mx-auto text-white/60 mt-8 leading-relaxed">
+                Planos simples que crescem junto com o seu canal. Faça um upgrade apenas quando começar a colher
+                resultados massivos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Grid -->
+    <section class="py-24 px-6 max-w-[1400px] mx-auto z-10 relative">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+
+            <!-- Basic Plan -->
+            <div
+                class="bento-card p-10 flex flex-col justify-between h-full bg-[#0a0a0a] border-white/10 pricing-tilt group opacity-90 hover:opacity-100 transition-opacity">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 text-white/70 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">mood</span>
+                    </div>
+                    <h3 class="font-[Outfit] font-black text-3xl mb-2 tracking-tight">Grátis</h3>
+                    <p class="text-white/50 text-sm font-medium mb-8">Pra quem quer testar a ferramenta.</p>
+                    <div class="font-[Outfit] mb-8">
+                        <span class="text-5xl font-black">R$ 0</span>
+                        <span class="text-white/50 font-medium">/mês</span>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-white/70 mb-10">
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-green-400 text-lg">check</span> 10 Thumbnails por
+                            mês</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-green-400 text-lg">check</span> Resolução 720p HD
+                        </li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-green-400 text-lg">check</span> Templates Básicos
+                        </li>
+                        <li class="flex items-center gap-3 opacity-30"><span
+                                class="material-symbols-outlined text-lg">close</span> Sem A/B Testing</li>
+                        <li class="flex items-center gap-3 opacity-30"><span
+                                class="material-symbols-outlined text-lg">close</span> Sem Deepfake de Face</li>
+                    </ul>
+                </div>
+                <a href="#"
+                    class="btn-tiktok-outline w-full hover:border-[var(--neon-cyan)] group-hover:text-[var(--neon-cyan)] hover:shadow-none">Começar
+                    Grátis</a>
+            </div>
+
+            <!-- Pro Plan -->
+            <div
+                class="bento-card p-10 flex flex-col justify-between h-full bg-[#120a10] border-2 border-[var(--neon-pink)] pricing-tilt pro-glow transform md:-translate-y-4">
+                <div
+                    class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[var(--neon-pink)] to-[var(--neon-cyan)]">
+                </div>
+                <div
+                    class="absolute top-6 right-6 bg-[var(--neon-pink)] text-white text-[10px] uppercase tracking-widest font-black py-1 px-3 rounded-full shadow-[0_0_15px_rgba(255,0,80,0.6)]">
+                    Mais Escolhido
+                </div>
+
+                <div>
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-[rgba(255,0,80,0.15)] text-[var(--neon-pink)] flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+                    </div>
+                    <h3 class="font-[Outfit] font-black text-3xl mb-2 tracking-tight">Criador Pro</h3>
+                    <p class="text-white/50 text-sm font-medium mb-8">Tudo que você precisa pra crescer
+                        consistentemente.</p>
+                    <div class="font-[Outfit] mb-8">
+                        <span class="text-5xl font-black text-[var(--neon-pink)]">R$ 49</span>
+                        <span class="text-white/50 font-medium">/mês</span>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-white/90 mb-10">
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-pink)] text-lg">check</span>
+                            100 Thumbnails por mês</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-pink)] text-lg">check</span>
+                            Exportação 4K UHD</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-pink)] text-lg">check</span> Acesso à
+                            todos os Templates Virais</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-pink)] text-lg">check</span> Engine
+                            Visual de Face Swap (Deepfake)</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-pink)] text-lg">check</span> Export em
+                            Lote para A/B Tests</li>
+                    </ul>
+                </div>
+                <a href="#"
+                    class="btn-tiktok w-full bg-white text-black hover:bg-[var(--neon-pink)] hover:text-white transition-colors duration-300">Escolher
+                    Pro</a>
+            </div>
+
+            <!-- Agency Plan -->
+            <div
+                class="bento-card p-10 flex flex-col justify-between h-full bg-[#030d12] border-white/10 border-l-[var(--neon-cyan)] pricing-tilt opacity-90 hover:opacity-100 transition-opacity">
+                <div>
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-[rgba(0,242,254,0.1)] text-[var(--neon-cyan)] flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                    </div>
+                    <h3 class="font-[Outfit] font-black text-3xl mb-2 tracking-tight">Agência</h3>
+                    <p class="text-white/50 text-sm font-medium mb-8">Operações em massa, equipes e múltiplos canais.
+                    </p>
+                    <div class="font-[Outfit] mb-8">
+                        <span class="text-5xl font-black text-[var(--neon-cyan)]">R$ 199</span>
+                        <span class="text-white/50 font-medium">/mês</span>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-white/70 mb-10">
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-cyan)] text-lg">check</span> Operação
+                            Multi-Canal (Até 15 YouTubes)</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-cyan)] text-lg">check</span>
+                            Exportação 8K UHD</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-cyan)] text-lg">check</span> API de
+                            Integração em Massa</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-[var(--neon-cyan)] text-lg">check</span>
+                            Super Prioridade na Fila do Server</li>
+                    </ul>
+                </div>
+                <a href="#"
+                    class="btn-tiktok-outline w-full border-[var(--neon-cyan)]/50 hover:bg-[var(--neon-cyan)] text-[var(--neon-cyan)] hover:text-black hover:border-transparent">Assinar
+                    Agência</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/[0.07] pt-20 pb-10 bg-[#060606] z-10 relative">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+            <!-- Brand -->
+            <div class="lg:col-span-1">
+                <a href="/"
+                    class="flex items-center gap-3 mb-6 transition-transform hover:scale-105 duration-300 inline-flex">
+                    <img src="assets/images/logo.png" alt="ThumbGerador Logo" class="h-9 w-auto object-contain" />
+                    <span class="font-[Outfit] font-black text-xl tracking-tighter uppercase">ThumbGerador</span>
+                </a>
+                <p class="text-white/40 text-sm leading-relaxed max-w-xs font-medium">
+                    Esta é uma landing page template criada apenas de inspiração para novos projetos.
+                </p>
+            </div>
+
+            <!-- Features -->
+            <div>
+                <h4 class="font-[Outfit] font-black text-sm mb-5 uppercase tracking-wider text-[var(--neon-pink)]">
+                    Recursos
+                </h4>
+                <ul class="space-y-3 text-white/40 font-medium text-sm">
+                    <li><a href="/pricing" class="hover:text-[var(--neon-pink)] transition-colors">Preços</a></li>
+                    <li><a href="https://github.com/DaviLuquini/ThumbGenerator" target="_blank"
+                            class="hover:text-[var(--neon-pink)] transition-colors">Github</a></li>
+                </ul>
+            </div>
+
+            <!-- Use Cases -->
+            <div>
+                <h4 class="font-[Outfit] font-black text-sm mb-5 uppercase tracking-wider text-[var(--neon-cyan)]">
+                    Meus outros projetos
+                </h4>
+                <ul class="space-y-3 text-white/40 font-medium text-sm">
+                    <li><a href="https://rickandmortydle.com/" target="_blank"
+                            class="hover:text-[var(--neon-cyan)] transition-colors">
+                            Rick and Morty Dle</a>
+                    </li>
+                    <li><a href="https://impostor-jogo.vercel.app/" target="_blank"
+                            class="hover:text-[var(--neon-cyan)] transition-colors">Jogo do Impostor</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+            class="max-w-[1400px] mx-auto px-6 border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-xs font-medium">
+            <div class="flex gap-5">
+                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                <span>•</span>
+                <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+            </div>
+            <div>Made in Brazil 🇧🇷 — ©2026 ThumbGerador</div>
+            <div class="flex gap-5">
+                <a href="#" class="hover:text-[var(--neon-pink)] transition-colors">YouTube</a>
+                <a href="#" class="hover:text-white transition-colors">X / Twitter</a>
+                <a href="#" class="hover:text-[var(--neon-pink)] transition-colors">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
