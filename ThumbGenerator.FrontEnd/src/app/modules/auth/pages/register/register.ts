@@ -11,7 +11,7 @@ import { AuthService } from '../../../../core/services/auth.service';
     <div class="auth-container">
       <div class="auth-card">
         <div class="auth-header">
-          <h1>ThumbGenerator</h1>
+          <h1>ThumbGerador</h1>
           <p>Crie sua conta gratuitamente</p>
         </div>
         

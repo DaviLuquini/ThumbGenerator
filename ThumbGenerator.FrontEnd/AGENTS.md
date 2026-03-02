@@ -1,9 +1,9 @@
-# ThumbGenerator Frontend - Agent Guide
+# ThumbGerador Frontend - Agent Guide
 
-This document provides context, standards, and patterns for agents working on the ThumbGenerator Frontend.
+This document provides context, standards, and patterns for agents working on the ThumbGerador Frontend.
 
 ## 1. Project Overview
-**ThumbGenerator** is a web application for creating YouTube thumbnails, featuring AI-powered enhancements.
+**ThumbGerador** is a web application for creating YouTube thumbnails, featuring AI-powered enhancements.
 *   **Frontend:** Angular 20+, Tailwind CSS 4, Konva.js (Canvas).
 *   **Backend:** ASP.NET Core Web API.
 
