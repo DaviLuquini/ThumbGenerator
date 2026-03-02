@@ -1,8 +1,8 @@
-# ThumbGerador 🚀
+# ThumbGerador
 
 Bem-vindo ao repositório do **ThumbGerador**! 
 
-Este projeto é um **template open-source de Landing Page e Pricing Page** criado com foco em alta conversão, voltado para o nicho de criação de conteúdo, agências e YouTubers. Ele apresenta um design marcante com **estética Cyberpunk e um estilo "TikTok"**, utilizando a paleta de cores Neon Pink e Neon Cyan, glitch text effects, sombras deslocadas, glassmorphism e micro-interações dinâmicas.
+Este projeto é um **template open-source de Landing Page e Pricing Page** criado com foco em alta conversão, voltado para um SaaS de criação de thumbnails com IA. O projeto tem a Landing Page e a Pricing Page prontas para uso, demais páginas e backend não foram finalizados.
 
 Sinta-se 100% livre para clonar, estudar, modificar e **usar este template gratuitamente** em seus próprios projetos comerciais ou pessoais! 🎉
 
@@ -61,5 +61,3 @@ Para rodar este template na sua máquina local, certifique-se de ter o [Node.js]
 ## 📜 Licença e Uso
 
 Este template foi criado de forma **totalmente gratuita e livre para uso**. Você pode pegá-lo como base de inspiração, adaptar para seus clientes ou utilizar como portfólio. Não há restrições!
-
-***Made in Brazil 🇧🇷 com muito código e café!***
