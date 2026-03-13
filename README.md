@@ -8,6 +8,10 @@ Sinta-se 100% livre para clonar, estudar, modificar e **usar este template gratu
 
 ---
 
+<img width="1900" height="857" alt="image" src="https://github.com/user-attachments/assets/8884b148-12f5-4a2e-a1a4-b90682c820f6" />
+
+---
+
 ## 🛠 Tecnologias Utilizadas
 
 Este projeto foi construído utilizando as seguintes tecnologias modernas do ecossistema front-end:
